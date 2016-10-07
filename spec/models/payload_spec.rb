@@ -4,143 +4,119 @@ RSpec.describe "Payload" do
   describe "validation" do
     it "is invalid without a URL" do
       payload = Payload.create(
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               requested_at: 1,
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without a requestedAt" do
+    it "is invalid without a requested_at" do
       payload = Payload.create(
                                url: "test",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without a respondedIn" do
+    it "is invalid without a responded_in" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               requested_at: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without a referredBy" do
+    it "is invalid without a referred_by_id" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               requested_at: 1,
+                               responded_in: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without a requestType" do
+    it "is invalid without a request_type_id" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               requested_at: 1,
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without an eventName" do
+    it "is invalid without an event_name_id" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               requested_at: 1,
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without an userAgent" do
+    it "is invalid without an user_agent_id" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
-                               ip: "a"
+                               requested_at: 1,
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               resolution_id: 2,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without a resolutionWidth" do
+    it "is invalid without a resolution_id" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionHeight: 2,
-                               ip: "a"
-                              )
-
-      expect(payload).to_not be_valid
-    end
-
-    it "is invalid without a resolutionHeight" do
-      payload = Payload.create(
-                               url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               ip: "a"
+                               requested_at: 1,
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               ip: 1
                               )
 
       expect(payload).to_not be_valid
@@ -149,14 +125,13 @@ RSpec.describe "Payload" do
     it "is invalid without an ip" do
       payload = Payload.create(
                                url: "test",
-                               requestedAt: "a",
-                               respondedIn: 1,
-                               referredBy: "a",
-                               requestType: "a",
-                               eventName: "a",
-                               userAgent: "a",
-                               resolutionWidth: 1,
-                               resolutionHeight: 2,
+                               requested_at: 1,
+                               responded_in: 1,
+                               referred_by_id: 1,
+                               request_type_id: 1,
+                               event_name_id: 1,
+                               user_agent_id: 1,
+                               resolution_id: 2,
                               )
 
       expect(payload).to_not be_valid
