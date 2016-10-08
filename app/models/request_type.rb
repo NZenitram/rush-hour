@@ -5,7 +5,11 @@ class RequestType < ActiveRecord::Base
   has_many :payloads
 
   def self.most_frequent
-    binding.pry
-    group(:http_verb).order("http_verb DESC").count
+    group(:http_verb).count.max_by{ |k, v| v}[0]
   end
+
+  def self.verbs_list
+    group(:http_verb).count.keys.sort
+  end
+
 end
