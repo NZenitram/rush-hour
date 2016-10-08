@@ -10,24 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006235727) do
+ActiveRecord::Schema.define(version: 20161007234255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ips", force: :cascade do |t|
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "payloads", force: :cascade do |t|
-    t.string   "url"
-    t.datetime "requestedAt"
-    t.integer  "respondedIn"
-    t.string   "referredBy"
-    t.string   "requestType"
-    t.string   "eventName"
-    t.string   "userAgent"
-    t.integer  "resolutionWidth"
-    t.integer  "resolutionHeight"
-    t.string   "ip"
+    t.integer  "url_id"
+    t.datetime "requested_at"
+    t.integer  "responded_in"
+    t.integer  "referred_by_id"
+    t.integer  "request_type_id"
+    t.integer  "event_name_id"
+    t.integer  "u_agent_id"
+    t.integer  "resolution_id"
+    t.integer  "ip_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "referred_bies", force: :cascade do |t|
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "request_types", force: :cascade do |t|
+    t.string   "http_verb"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resolutions", force: :cascade do |t|
+    t.integer  "height"
+    t.integer  "width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "u_agents", force: :cascade do |t|
+    t.string   "browser"
+    t.string   "operating_system"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "urls", force: :cascade do |t|
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
