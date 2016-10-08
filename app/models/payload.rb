@@ -9,12 +9,27 @@ class Payload < ActiveRecord::Base
   validates :resolution_id,     presence: true
   validates :ip_id,             presence: true
 
-  belongs_to :events
-  belongs_to :ips
-  belongs_to :referred_bies
-  belongs_to :request_types
-  belongs_to :resolutions
-  belongs_to :u_agents
-  belongs_to :urls
+  belongs_to :event
+  belongs_to :ip
+  belongs_to :referred_by
+  belongs_to :request_type
+  belongs_to :resolution
+  belongs_to :u_agent
+  belongs_to :url
+
+  def self.average_response
+    average(:responded_in)
+  end
+
+  def self.max_response
+    maximum(:responded_in)
+  end
+
+  def self.min_response
+    minimum(:responded_in)
+  end
+
+
+
 
 end
