@@ -9,7 +9,7 @@ class UAgent < ActiveRecord::Base
     total = UAgent.count
     browsers.each do |browser, occurance_total|
         browsers[browser] = (occurance_total.to_f/total).round(3)
-      end
+    end
   end
 
   def self.operating_system_breakdown
@@ -17,11 +17,7 @@ class UAgent < ActiveRecord::Base
     total = UAgent.count
     operating_systems.each do |os, occurance_total|
         operating_systems[os] = (occurance_total.to_f/total).round(3)
-      end
+    end
   end
-
-
-
-
 
 end
