@@ -37,7 +37,7 @@ class Url < ActiveRecord::Base
     end.uniq
   end
 
-  def self.find_all_referrers(requested_address)
+  def self.find_top_referrers(requested_address)
     referred_group = where_payload(requested_address).group(:referred_by_id).count
     referred_group_sort = referred_group.sort_by{ |k,v| v}.reverse.first(3)
     referred_group_sort.map do |element|
@@ -45,8 +45,12 @@ class Url < ActiveRecord::Base
     end
   end
 
-  def self.find
-
+  def self.find_top_agents(requested_address)
+    agent_group = where_payload(requested_address).group(:u_agent_id).count
+    agent_group_sort = agent_group.sort_by{ |k,v| v}.reverse.first(3)
+    agent_group_sort.map do |element|
+      [UAgent.find(element[0]).browser, UAgent.find(element[0]).operating_system]
+    end 
   end
 
 end

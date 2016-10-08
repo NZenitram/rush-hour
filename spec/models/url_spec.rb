@@ -250,7 +250,7 @@ RSpec.describe "Url" do
       expect(Url.list_all_http_verbs("http://www.reddit.com")).to eq(["GET"])
     end
 
-    it "can retrieve referrers" do
+    it "can retrieve 3 popular referrers" do
       url_1 = Url.find_or_create_by(address: "http://www.facebook.com")
       ref_1 = ReferredBy.find_or_create_by(address: "http://www.google.com")
       ref_2 = ReferredBy.find_or_create_by(address: "http://www.reddit.com")
@@ -338,10 +338,104 @@ RSpec.describe "Url" do
                      ip_id: 1
                               )
       expected = [ref_1.address, ref_3.address, ref_2.address]
-      expect(Url.find_all_referrers("http://www.facebook.com")).to eq(expected)
+      expect(Url.find_top_referrers("http://www.facebook.com")).to eq(expected)
     end
   end
 
-  
+  it "can retrieve 3 popular user agents" do
+    url_1 = Url.find_or_create_by(address: "http://www.facebook.com")
+    ref_1 = UAgent.find_or_create_by(browser: "Chrome", operating_system: "OSX")
+    ref_2 = UAgent.find_or_create_by(browser: "Chrome", operating_system: "Windows 10")
+    ref_3 = UAgent.find_or_create_by(browser: "FireFox", operating_system: "Windows 10")
+    ref_4 = UAgent.find_or_create_by(browser: "FireFox", operating_system: "OSX")
+
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 25,
+                   referred_by_id: 1,
+                   request_type_id: 1,
+                   event_name_id: 1,
+                   u_agent_id: ref_1.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 35,
+                   referred_by_id: 1,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_1.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 45,
+                   referred_by_id: 2,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_2.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 55,
+                   referred_by_id: 2,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_2.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 55,
+                   referred_by_id: 3,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_3.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 55,
+                   referred_by_id: 3,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_3.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 55,
+                   referred_by_id: 2,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_4.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    Payload.create(url_id: url_1.id,
+                   requested_at: "2013-02-16 21:38:28 -0700",
+                   responded_in: 55,
+                   referred_by_id: 1,
+                   request_type_id: 2,
+                   event_name_id: 1,
+                   u_agent_id: ref_1.id,
+                   resolution_id: 2,
+                   ip_id: 1
+                            )
+    expected = [[ref_1.browser, ref_1.operating_system],
+                [ref_2.browser, ref_2.operating_system],
+                [ref_3.browser, ref_3.operating_system]
+               ]
+
+    expect(Url.find_top_agents("http://www.facebook.com")).to eq(expected)
+  end
+
 
 end
