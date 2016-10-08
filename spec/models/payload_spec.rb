@@ -252,7 +252,25 @@ RSpec.describe "Payload" do
 
       expect(Payload.min_response).to eq(1)
     end
+  end
 
+  describe "check relational methods" do
+    it "returns most frequent request type" do
+      request = RequestType.create(http_verb: "GET")
+      payload = Payload.create(
+                     url_id: 2,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 2,
+                     referred_by_id: 2,
+                     request_type_id: request.id,
+                     event_name_id: 2,
+                     u_agent_id: 2,
+                     resolution_id: 2,
+                     ip_id: 2
+                    )
+      binding.pry
+      expect(Payload.first.request_types.most_frequent).to eq("GET")
+    end
   end
 
 end
