@@ -17,4 +17,17 @@ class Payload < ActiveRecord::Base
   belongs_to :u_agents
   belongs_to :urls
 
+  def self.average_response
+    average(:responded_in)
+  end
+
+  def self.max_response
+    maximum(:responded_in)
+  end
+
+  def self.min_response
+    minimum(:responded_in)
+  end
+
+
 end

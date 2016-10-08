@@ -10,4 +10,14 @@ RSpec.describe "Request_type" do
     end
   end
 
+  describe "returns http verbs" do
+    it "returns most frequently used http verb" do
+      RequestType.create(http_verb: "GET")
+      RequestType.create(http_verb: "GET")
+      RequestType.create(http_verb: "POST")
+
+      expect(RequestType.most_frequent).to eq("GET")
+    end
+  end
+
 end
