@@ -430,8 +430,8 @@ RSpec.describe "Url" do
                    ip_id: 1
                             )
     expected = [[ref_1.browser, ref_1.operating_system],
-                [ref_2.browser, ref_2.operating_system],
-                [ref_3.browser, ref_3.operating_system]
+                [ref_3.browser, ref_3.operating_system],
+                [ref_2.browser, ref_2.operating_system]
                ]
 
     expect(Url.find_top_agents("http://www.facebook.com")).to eq(expected)

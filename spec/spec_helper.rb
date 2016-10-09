@@ -20,4 +20,8 @@ RSpec.configure do |c|
   c.after(:each) do
     DatabaseCleaner.clean
   end
+  c.after(:all) do
+    DatabaseCleaner.clean
+  end
+
 end
