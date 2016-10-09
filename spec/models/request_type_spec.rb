@@ -123,7 +123,7 @@ RSpec.describe "Request_type" do
 
 
       expect(RequestType.verbs_list).to_not eq(["GET", "POST"])
-      expect(RequestType.verbs_list).to eq(["DELETE", "POST", "GET"])
+      expect(RequestType.verbs_list.sort).to eq(["DELETE", "GET", "POST"])
 
     end
   end

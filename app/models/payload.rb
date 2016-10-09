@@ -9,6 +9,7 @@ class Payload < ActiveRecord::Base
   validates :resolution_id,     presence: true
   validates :ip_id,             presence: true
 
+  belongs_to :client
   belongs_to :event
   belongs_to :ip
   belongs_to :referred_by
