@@ -23,7 +23,14 @@ module RushHour
           status 200
           body "{'identifier':'#{params[:identifier]}'}\n"
       end
+    end
 
+    post '/sources/:IDENTIFIER/data' do
+      binding.pry
+      if Client.find_by(identifier: params[:IDENTIFIER]).nil?
+        status 400
+        body "Client does not exist\n"
+      end
     end
 
   end
