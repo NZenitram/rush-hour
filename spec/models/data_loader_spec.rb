@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
-RSpec.describe "Json_parser" do
-  describe "JsonParser" do
+RSpec.describe "Data_loader" do
+  describe "DataLoader" do
     it "can_parse_JSON" do
       payload = '{
                   "url":"http://jumpstartlab.com/blog",
@@ -28,7 +28,7 @@ RSpec.describe "Json_parser" do
                   "ip"=>"63.29.38.211"
                 }
 
-      expect(JsonParser.new(payload).parsed_data).to eq(expected)
+      expect(DataLoader.new(payload).parsed_data).to eq(expected)
     end
   end
 end
