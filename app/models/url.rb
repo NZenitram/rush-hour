@@ -13,6 +13,10 @@ class Url < ActiveRecord::Base
     where_payload(requested_address).max_response
   end
 
+  def max_response_time
+    payloads.maximum(:responded_in)
+  end
+
   def self.min_response_time(requested_address)
     where_payload(requested_address).min_response
   end
@@ -50,7 +54,7 @@ class Url < ActiveRecord::Base
     agent_group_sort = agent_group.sort_by{ |k,v| v}.reverse.first(3)
     agent_group_sort.map do |element|
       [UAgent.find(element[0]).browser, UAgent.find(element[0]).operating_system]
-    end 
+    end
   end
 
 end

@@ -8,7 +8,7 @@ RSpec.describe "Payload" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -23,7 +23,7 @@ RSpec.describe "Payload" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -38,7 +38,7 @@ RSpec.describe "Payload" do
                                requested_at: 1,
                                referred_by_id: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -53,7 +53,7 @@ RSpec.describe "Payload" do
                                requested_at: 1,
                                responded_in: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -68,7 +68,7 @@ RSpec.describe "Payload" do
                                requested_at: 1,
                                responded_in: 1,
                                referred_by_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -77,7 +77,7 @@ RSpec.describe "Payload" do
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without an event_name_id" do
+    it "is invalid without an event_id" do
       payload = Payload.create(
                                url_id: 1,
                                requested_at: 1,
@@ -99,7 +99,7 @@ RSpec.describe "Payload" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                resolution_id: 2,
                                ip_id: 1
                               )
@@ -114,7 +114,7 @@ RSpec.describe "Payload" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                ip_id: 1
                               )
@@ -129,7 +129,7 @@ RSpec.describe "Payload" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: 1,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                               )
@@ -146,7 +146,7 @@ RSpec.describe "Payload" do
                      responded_in: 100,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -157,7 +157,7 @@ RSpec.describe "Payload" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -168,7 +168,7 @@ RSpec.describe "Payload" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -184,7 +184,7 @@ RSpec.describe "Payload" do
                      responded_in: 100,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -195,7 +195,7 @@ RSpec.describe "Payload" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -206,7 +206,7 @@ RSpec.describe "Payload" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -222,7 +222,7 @@ RSpec.describe "Payload" do
                      responded_in: 100,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -233,7 +233,7 @@ RSpec.describe "Payload" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -244,7 +244,7 @@ RSpec.describe "Payload" do
                      responded_in: 1,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
