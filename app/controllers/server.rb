@@ -42,5 +42,9 @@ module RushHour
       end
     end
 
+    get '/sources/:IDENTIFIER' do
+      
+    end
+
   end
 end

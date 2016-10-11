@@ -17,4 +17,24 @@ class Client < ActiveRecord::Base
     through: :payloads
   has_many :urls,
     through: :payloads
+
+  def average_response_time
+    payloads.average_response.to_i
+  end
+
+  def max_response_time
+    payloads.max_response
+  end
+
+  def min_response_time
+    payloads.min_response
+  end
+
+  def most_frequent_request_type
+    binding.pry
+    payloads.request_type.most_frequent
+  end
+
+
+
 end
