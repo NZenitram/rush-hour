@@ -10,7 +10,9 @@
 <h2>HTTP Verbs: </h2>
 <%= @client.client_verbs_list %>
 <h2>URLs: </h2>
-<%= @client.list_of_sorted_urls %>
+<% @client.list_of_sorted_urls.each do |url| %>
+  <a href="/sources/<%= @client.identifier %>/urls<%= format_url(url, @client) %>"><%= url %></a>
+<% end %>
 <h2>Browsers: </h2>
 <%= @client.web_browsers_across_payloads %>
 <h2>Operating Systems: </h2>
