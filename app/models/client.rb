@@ -34,6 +34,10 @@ class Client < ActiveRecord::Base
     request_types.most_frequent(payloads)
   end
 
+  def client_verbs_list
+    request_types.verbs_list(payloads)
+  end
+
   def list_of_sorted_urls
     urls.order_addresses
   end
@@ -49,8 +53,5 @@ class Client < ActiveRecord::Base
   def resolutions_across_payloads
     resolutions.resolution_occurances
   end
-
-
-
 
 end

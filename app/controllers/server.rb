@@ -39,6 +39,7 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER' do
+      @client = Client.find_by(identifier: params[:IDENTIFIER])
       if ControllerLogic.nil_client(params)
         status 403
         body "Please ensure the client exists\n"
@@ -48,7 +49,7 @@ module RushHour
         body "No payloads have been received for this source\n"
         erb :error
       else
-        erb :urls
+        erb :identifier
       end
     end
 

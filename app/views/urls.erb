@@ -1,9 +1,0 @@
-<h1> URLs Page </h1>
-
-<%binding.pry%>
-
-<% Url.all.each do |url| %>
-  <ul>
-    <li><a href="/sources/<% params[:IDENTIFIER] %>/urls/<% params[:RELATIVEPATH] %>"><%= url.address %></a></li>
-  </ul>
-<% end %>
