@@ -1,4 +1,5 @@
 require_relative '../spec_helper'
+require 'pry'
 
 RSpec.describe "Url" do
 
@@ -43,7 +44,7 @@ RSpec.describe "Url" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -53,7 +54,7 @@ RSpec.describe "Url" do
                      responded_in: 35,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -63,7 +64,7 @@ RSpec.describe "Url" do
                      responded_in: 45,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -73,7 +74,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -95,7 +96,7 @@ RSpec.describe "Url" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -105,7 +106,7 @@ RSpec.describe "Url" do
                      responded_in: 35,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -115,7 +116,7 @@ RSpec.describe "Url" do
                      responded_in: 45,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -125,7 +126,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -147,7 +148,7 @@ RSpec.describe "Url" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -157,7 +158,7 @@ RSpec.describe "Url" do
                      responded_in: 35,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -167,7 +168,7 @@ RSpec.describe "Url" do
                      responded_in: 45,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -177,7 +178,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: 1,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -200,7 +201,7 @@ RSpec.describe "Url" do
                      responded_in: 25,
                      referred_by_id: 1,
                      request_type_id: type_1.id,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -210,7 +211,7 @@ RSpec.describe "Url" do
                      responded_in: 35,
                      referred_by_id: 1,
                      request_type_id: type_2.id,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -220,7 +221,7 @@ RSpec.describe "Url" do
                      responded_in: 45,
                      referred_by_id: 1,
                      request_type_id: type_3.id,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -230,7 +231,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: 1,
                      request_type_id: type_4.id,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -240,7 +241,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: 1,
                      request_type_id: type_1.id,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -262,7 +263,7 @@ RSpec.describe "Url" do
                      responded_in: 25,
                      referred_by_id: ref_1.id,
                      request_type_id: 1,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -272,7 +273,7 @@ RSpec.describe "Url" do
                      responded_in: 35,
                      referred_by_id: ref_1.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -282,7 +283,7 @@ RSpec.describe "Url" do
                      responded_in: 45,
                      referred_by_id: ref_2.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -292,7 +293,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: ref_2.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -302,7 +303,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: ref_3.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -312,7 +313,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: ref_3.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -322,7 +323,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: ref_4.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -332,7 +333,7 @@ RSpec.describe "Url" do
                      responded_in: 55,
                      referred_by_id: ref_1.id,
                      request_type_id: 2,
-                     event_name_id: 1,
+                     event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,
                      ip_id: 1
@@ -354,7 +355,7 @@ RSpec.describe "Url" do
                    responded_in: 25,
                    referred_by_id: 1,
                    request_type_id: 1,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_1.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -364,7 +365,7 @@ RSpec.describe "Url" do
                    responded_in: 35,
                    referred_by_id: 1,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_1.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -374,7 +375,7 @@ RSpec.describe "Url" do
                    responded_in: 45,
                    referred_by_id: 2,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_2.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -384,7 +385,7 @@ RSpec.describe "Url" do
                    responded_in: 55,
                    referred_by_id: 2,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_2.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -394,7 +395,7 @@ RSpec.describe "Url" do
                    responded_in: 55,
                    referred_by_id: 3,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_3.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -404,7 +405,7 @@ RSpec.describe "Url" do
                    responded_in: 55,
                    referred_by_id: 3,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_3.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -414,7 +415,7 @@ RSpec.describe "Url" do
                    responded_in: 55,
                    referred_by_id: 2,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_4.id,
                    resolution_id: 2,
                    ip_id: 1
@@ -424,7 +425,7 @@ RSpec.describe "Url" do
                    responded_in: 55,
                    referred_by_id: 1,
                    request_type_id: 2,
-                   event_name_id: 1,
+                   event_id: 1,
                    u_agent_id: ref_1.id,
                    resolution_id: 2,
                    ip_id: 1

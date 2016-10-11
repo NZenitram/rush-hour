@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009173714) do
+ActiveRecord::Schema.define(version: 20161010213656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20161009173714) do
     t.integer  "responded_in"
     t.integer  "referred_by_id"
     t.integer  "request_type_id"
-    t.integer  "event_name_id"
+    t.integer  "event_id"
     t.integer  "u_agent_id"
     t.integer  "resolution_id"
     t.integer  "ip_id"
