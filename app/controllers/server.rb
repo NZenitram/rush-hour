@@ -43,7 +43,15 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER' do
-      
+      if Client.find_by(identifier: params[:IDENTIFIER]).nil?
+        status 403
+        body "Please ensure the client exists\n"
+        erb :error
+      elsif Client.find_by(identifier: params[:IDENTIFIER]).payloads.count == 0
+        status 403
+        body "No payloads have been received for this source\n"
+        erb :error
+      end
     end
 
   end

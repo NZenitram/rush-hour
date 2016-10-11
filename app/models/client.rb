@@ -31,9 +31,25 @@ class Client < ActiveRecord::Base
   end
 
   def most_frequent_request_type
-    binding.pry
-    payloads.request_type.most_frequent
+    request_types.most_frequent(payloads)
   end
+
+  def list_of_sorted_urls
+    urls.order_addresses
+  end
+
+  def web_browsers_across_payloads
+    u_agents.web_browser_breakdown
+  end
+
+  def operating_systems_across_payloads
+    u_agents.operating_system_breakdown
+  end
+
+  def resolutions_across_payloads
+    resolutions.resolution_occurances
+  end
+
 
 
 
