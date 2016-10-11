@@ -11,10 +11,10 @@ module RushHour
             params[:rootUrl].nil?    || params[:rootUrl] == ""
             )
             status 400
-            body "Missing parameters\n"
+            body "Please ensure all parameters are provided\n"
       elsif Client.exists?(identifier: params[:identifier])
         status 403
-        body "Identifier Already Exists\n"
+        body "Please create a unique Identifier\n"
        else
           Client.find_or_create_by(
               identifier: params[:identifier],
@@ -26,10 +26,19 @@ module RushHour
     end
 
     post '/sources/:IDENTIFIER/data' do
-      binding.pry
       if Client.find_by(identifier: params[:IDENTIFIER]).nil?
-        status 400
-        body "Client does not exist\n"
+        status 403
+        body "Please ensure the client exists\n"
+      elsif params[:payload].nil?
+        status 403
+        body "Please ensure a payload is included in the data submission\n"
+      elsif Payload.exists?(DataLoader.new(params).search_payload)
+        status 403
+        body "Please ensure payload data is unique\n"
+      else
+        status 200
+        body "All ok\n"
+        DataLoader.new(params).load_payload
       end
     end
 
