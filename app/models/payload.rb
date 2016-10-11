@@ -30,7 +30,4 @@ class Payload < ActiveRecord::Base
     minimum(:responded_in)
   end
 
-
-
-
 end
