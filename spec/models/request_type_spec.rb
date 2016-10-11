@@ -22,7 +22,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r1.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -33,7 +33,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r2.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -44,7 +44,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r3.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -69,7 +69,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r1.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -80,7 +80,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r2.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -91,7 +91,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r3.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -103,7 +103,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r3.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1
@@ -114,7 +114,7 @@ RSpec.describe "Request_type" do
                                responded_in: 1,
                                referred_by_id: 1,
                                request_type_id: r4.id,
-                               event_name_id: 1,
+                               event_id: 1,
                                u_agent_id: 1,
                                resolution_id: 2,
                                ip_id: 1

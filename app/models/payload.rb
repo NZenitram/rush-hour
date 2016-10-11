@@ -4,7 +4,7 @@ class Payload < ActiveRecord::Base
   validates :responded_in,      presence: true
   validates :referred_by_id,    presence: true
   validates :request_type_id,   presence: true
-  validates :event_name_id,     presence: true
+  validates :event_id,          presence: true
   validates :u_agent_id,        presence: true
   validates :resolution_id,     presence: true
   validates :ip_id,             presence: true
@@ -29,8 +29,5 @@ class Payload < ActiveRecord::Base
   def self.min_response
     minimum(:responded_in)
   end
-
-
-
 
 end

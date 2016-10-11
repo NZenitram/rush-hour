@@ -4,6 +4,7 @@ gem 'sinatra', require: 'sinatra/base'
 gem 'pg'
 gem 'activerecord'
 gem 'sinatra-activerecord'
+gem 'useragent'
 
 group :development, :test do
   gem 'shotgun'
@@ -17,4 +18,5 @@ group :development, :test do
   gem 'pry'
   gem 'pry-coolline'
   gem 'rb-readline'
+
 end
