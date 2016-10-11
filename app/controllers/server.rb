@@ -7,51 +7,54 @@ module RushHour
     end
 
     post '/sources' do
-      if  ( params[:identifier].nil? || params[:identifier] == "" ||
-            params[:rootUrl].nil?    || params[:rootUrl] == ""
-            )
-            status 400
-            body "Please ensure all parameters are provided\n"
-      elsif Client.exists?(identifier: params[:identifier])
+      if ControllerLogic.valid_parameters(params)
+        status 400
+        body "Please ensure all parameters are provided\n"
+      elsif ControllerLogic.client_exists(params)
         status 403
         body "Please create a unique Identifier\n"
-       else
-          Client.find_or_create_by(
-              identifier: params[:identifier],
-              root_url: params[:rootUrl]
-              )
-          status 200
-          body "{'identifier':'#{params[:identifier]}'}\n"
+      else
+        ControllerLogic.create_client(params)
+        status 200
+        body "{'identifier':'#{params[:identifier]}'}\n"
       end
+
     end
 
     post '/sources/:IDENTIFIER/data' do
-      if Client.find_by(identifier: params[:IDENTIFIER]).nil?
+      if ControllerLogic.nil_client(params)
         status 403
         body "Please ensure the client exists\n"
-      elsif params[:payload].nil?
+      elsif ControllerLogic.nil_params(params)
         status 403
         body "Please ensure a payload is included in the data submission\n"
-      elsif Payload.exists?(DataLoader.new(params).search_payload)
+      elsif ControllerLogic.payload_exists(params)
         status 403
         body "Please ensure payload data is unique\n"
       else
+        ControllerLogic.create_payload(params)
         status 200
-        body "All ok\n"
-        DataLoader.new(params).load_payload
+        body "Payload created\n"
       end
     end
 
     get '/sources/:IDENTIFIER' do
-      if Client.find_by(identifier: params[:IDENTIFIER]).nil?
+      @client = Client.find_by(identifier: params[:IDENTIFIER])
+      if ControllerLogic.nil_client(params)
         status 403
         body "Please ensure the client exists\n"
         erb :error
-      elsif Client.find_by(identifier: params[:IDENTIFIER]).payloads.count == 0
+      elsif ControllerLogic.payloads_associated(params)
         status 403
         body "No payloads have been received for this source\n"
         erb :error
+      else
+        erb :identifier
       end
+    end
+
+    get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do
+      erb :url_info
     end
 
   end

@@ -453,5 +453,74 @@ RSpec.describe "Client" do
       expect(client2.resolutions_across_payloads).to eq(["0 x 0"])
     end
 
+    it "can retrieve HTTP verbs" do
+      client1 = Client.create(identifier: "jumpstartlab", root_url: "http://jumpstartlab.com")
+      client2 = Client.create(identifier: "jumpstartlab1", root_url: "http://jumpstartlabs.com")
+      type_1 = RequestType.find_or_create_by(http_verb: "GET")
+      type_2 = RequestType.find_or_create_by(http_verb: "POST")
+      type_3 = RequestType.find_or_create_by(http_verb: "DELETE")
+      type_4 = RequestType.find_or_create_by(http_verb: "GET")
+
+      Payload.create(url_id: 1,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 25,
+                     referred_by_id: 1,
+                     request_type_id: type_1.id,
+                     event_id: 1,
+                     u_agent_id: 1,
+                     resolution_id: 2,
+                     ip_id: 1,
+                     client_id: client1.id
+                              )
+      Payload.create(url_id: 1,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 35,
+                     referred_by_id: 1,
+                     request_type_id: type_2.id,
+                     event_id: 1,
+                     u_agent_id: 1,
+                     resolution_id: 2,
+                     ip_id: 1,
+                     client_id: client1.id
+                              )
+      Payload.create(url_id: 1,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 45,
+                     referred_by_id: 1,
+                     request_type_id: type_3.id,
+                     event_id: 1,
+                     u_agent_id: 1,
+                     resolution_id: 2,
+                     ip_id: 1,
+                     client_id: client1.id
+                              )
+      Payload.create(url_id: 1,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 55,
+                     referred_by_id: 1,
+                     request_type_id: type_4.id,
+                     event_id: 1,
+                     u_agent_id: 1,
+                     resolution_id: 2,
+                     ip_id: 1,
+                     client_id: client1.id
+                              )
+      Payload.create(url_id: 1,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 55,
+                     referred_by_id: 1,
+                     request_type_id: type_1.id,
+                     event_id: 1,
+                     u_agent_id: 1,
+                     resolution_id: 2,
+                     ip_id: 1,
+                     client_id: client2.id
+                              )
+
+      expect(client1.client_verbs_list).to eq(["POST", "DELETE", "GET"])
+      expect(client2.client_verbs_list).to eq(["GET"])
+    end
+
+
   end
 end
