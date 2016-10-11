@@ -54,6 +54,8 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do
+      binding.pry
+      @client = Client.find_by(identifier: params[:IDENTIFIER])
       erb :url_info
     end
 

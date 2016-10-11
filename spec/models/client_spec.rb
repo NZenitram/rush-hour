@@ -521,6 +521,5 @@ RSpec.describe "Client" do
       expect(client2.client_verbs_list).to eq(["GET"])
     end
 
-
   end
 end
