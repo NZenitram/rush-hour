@@ -80,9 +80,9 @@ RSpec.describe "Url" do
                      ip_id: 1
                               )
 
-      expect(Url.max_response_time("http://www.google.com")).to eq(35)
-      expect(Url.max_response_time("http://www.github.com")).to eq(45)
-      expect(Url.max_response_time("http://www.reddit.com")).to eq(55)
+      expect(url_1.max_response_time).to eq(35)
+      expect(url_3.max_response_time).to eq(45)
+      expect(url_4.max_response_time).to eq(55)
     end
 
     it "can retrieve minimimum response time from a URL" do
@@ -132,9 +132,9 @@ RSpec.describe "Url" do
                      ip_id: 1
                               )
 
-      expect(Url.min_response_time("http://www.google.com")).to eq(25)
-      expect(Url.min_response_time("http://www.github.com")).to eq(45)
-      expect(Url.min_response_time("http://www.reddit.com")).to eq(55)
+      expect(url_1.min_response_time).to eq(25)
+      expect(url_3.min_response_time).to eq(45)
+      expect(url_4.min_response_time).to eq(55)
     end
 
     it "can retrieve all response times from a URL" do
@@ -184,8 +184,8 @@ RSpec.describe "Url" do
                      ip_id: 1
                               )
 
-      expect(Url.list_all_response_times("http://www.google.com")).to eq([45, 35, 25])
-      expect(Url.list_all_response_times("http://www.reddit.com")).to eq([55])
+      expect(url_1.list_all_response_times).to eq([45, 35, 25])
+      expect(url_4.list_all_response_times).to eq([55])
     end
 
     it "can retrieve HTTP verbs" do
@@ -247,8 +247,8 @@ RSpec.describe "Url" do
                      ip_id: 1
                               )
 
-      expect(Url.list_all_http_verbs("http://www.google.com")).to eq(["GET", "POST", "DELETE"])
-      expect(Url.list_all_http_verbs("http://www.reddit.com")).to eq(["GET"])
+      expect(url_1.list_all_http_verbs).to eq(["GET", "POST", "DELETE"])
+      expect(url_2.list_all_http_verbs).to eq(["GET"])
     end
 
     it "can retrieve 3 popular referrers" do
@@ -339,7 +339,7 @@ RSpec.describe "Url" do
                      ip_id: 1
                               )
       expected = [ref_1.address, ref_3.address, ref_2.address]
-      expect(Url.find_top_referrers("http://www.facebook.com")).to eq(expected)
+      expect(url_1.find_top_referrers).to eq(expected)
     end
   end
 
@@ -431,11 +431,11 @@ RSpec.describe "Url" do
                    ip_id: 1
                             )
     expected = [[ref_1.browser, ref_1.operating_system],
-                [ref_3.browser, ref_3.operating_system],
-                [ref_2.browser, ref_2.operating_system]
+                [ref_2.browser, ref_2.operating_system],
+                [ref_3.browser, ref_3.operating_system]
                ]
 
-    expect(Url.find_top_agents("http://www.facebook.com")).to eq(expected)
+    expect(url_1.find_top_agents).to eq(expected)
   end
 
 

@@ -42,4 +42,8 @@ class ControllerLogic < Sinatra::Base
     find_client(params).payloads.count == 0
   end
 
+  def self.find_url(client, params)
+    Url.find_by(address: client.root_url+"/"+params[:RELATIVEPATH])
+  end
+
 end

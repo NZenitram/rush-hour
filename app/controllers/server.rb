@@ -54,9 +54,14 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do
-      binding.pry
       @client = Client.find_by(identifier: params[:IDENTIFIER])
-      erb :url_info
+      @url = ControllerLogic.find_url(@client, params)
+      if @url.nil?
+        body "This URL has not been requested"
+        erb :error
+      else
+        erb :url_info
+      end
     end
 
   end
