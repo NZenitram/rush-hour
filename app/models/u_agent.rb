@@ -2,6 +2,7 @@ require 'pry'
 class UAgent < ActiveRecord::Base
   validates :browser, presence: true
   validates :operating_system, presence: true
+
   has_many :payloads
 
   def self.web_browser_breakdown

@@ -11,6 +11,7 @@ RSpec.describe "Data_loader" do
                   "captures"=>["jumpstartlab"],
                   "IDENTIFIER"=>"jumpstartlab"
                 }
+      parsed_data = DataLoader.new(params)
       expected = {
                   "url"=>"http://jumpstartlab.com/blog",
                   "requestedAt"=>"2013-02-16 21:38:28 -0700",
@@ -23,7 +24,6 @@ RSpec.describe "Data_loader" do
                   "resolutionHeight"=>"1280",
                   "ip"=>"63.29.38.211"
                 }
-      parsed_data = DataLoader.new(params)
 
       expect(parsed_data.payload).to eq(expected)
     end

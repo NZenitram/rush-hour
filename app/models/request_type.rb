@@ -1,5 +1,7 @@
 class RequestType < ActiveRecord::Base
   validates :http_verb, presence: true
+  validates :http_verb, uniqueness: true
+  
   has_many :payloads
 
   def self.most_frequent(loads = Payload.all)
