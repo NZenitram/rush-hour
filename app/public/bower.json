@@ -1,0 +1,20 @@
+{
+  "name": "Rush Hour",
+  "homepage": "https://github.com/NZenitram/rush-hour",
+  "authors": [
+    "Mike",
+    "Ali",
+    "Nick"
+  ],
+  "description": "",
+  "main": "layout.erb",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

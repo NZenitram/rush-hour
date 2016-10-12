@@ -1,21 +1,47 @@
-<h1> <%= @client.identifier %> </h1>
-<h2>Average Reponse Time: </h2>
-<%= @client.average_response_time %>
-<h2>Max Reponse Time: </h2>
-<%= @client.max_response_time %>
-<h2>Min Reponse Time: </h2>
-<%= @client.min_response_time %>
-<h2>Most Frequent Request Type: </h2>
-<%= @client.most_frequent_request_type %>
-<h2>HTTP Verbs: </h2>
-<%= @client.client_verbs_list %>
-<h2>URLs: </h2>
-<% @client.list_of_sorted_urls.each do |url| %>
+<h1 id="client"> <%= @client.identifier %> </h1>
+<div id="average_response">
+  <h3 >Average Reponse Time: </h3>
+  <%= @client.average_response_time %>
+</div>
+
+<div id="max_response">
+  <h3>Max Reponse Time: </h3>
+  <%= @client.max_response_time %>
+</div>
+
+<div id="min_response">
+  <h3>Min Reponse Time: </h3>
+  <%= @client.min_response_time %>
+</div>
+
+<div id="frequent_response">
+  <h3>Most Frequent Request Type: </h3>
+  <%= @client.most_frequent_request_type %>
+</div>
+
+<div id="verbs">
+  <h3>HTTP Verbs: </h3>
+  <%= @client.client_verbs_list %>
+</div>
+
+<div id="urls">
+  <h3>URLs: </h3>
+  <% @client.list_of_sorted_urls.each do |url| %>
   <a href="/sources/<%= @client.identifier %>/urls<%= format_url(url, @client) %>"><%= url %></a>
-<% end %>
-<h2>Browsers: </h2>
-<%= @client.web_browsers_across_payloads %>
-<h2>Operating Systems: </h2>
-<%= @client.operating_systems_across_payloads %>
-<h2>Screen Resolutions: </h2>
-<%= @client.resolutions_across_payloads %>
+  <% end %>
+</div>
+
+<div id="browsers">
+  <h3>Browsers: </h3>
+  <%= @client.web_browsers_across_payloads %>
+</div>
+
+<div id="os">
+  <h3>Operating Systems: </h3>
+  <%= @client.operating_systems_across_payloads %>
+</div>
+
+<div id="resolutions">
+  <h3>Screen Resolutions: </h3>
+  <%= @client.resolutions_across_payloads %>
+</div>

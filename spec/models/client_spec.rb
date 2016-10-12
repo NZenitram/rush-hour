@@ -3,15 +3,22 @@ require_relative '../spec_helper'
 RSpec.describe "Client" do
   describe "validation" do
     it "is invalid without an identifier" do
-      client = Client.find_or_create_by(root_url: "test")
+      client = Client.new(root_url: "test")
 
       expect(client).to_not be_valid
     end
 
     it "is invalid without a rootUrl" do
-      client = Client.find_or_create_by(identifier: "test")
+      client = Client.new(identifier: "test")
 
       expect(client).to_not be_valid
+    end
+
+    it "is invalid if identifier already exists" do
+      client = Client.create(identifier: "test")
+      client2 = Client.new(identifier: "test")
+
+      expect(client2).to_not be_valid
     end
   end
 
@@ -391,7 +398,7 @@ RSpec.describe "Client" do
       expect(client2.operating_systems_across_payloads).to_not eq({"Chrome" => 0.50, "Firefox" => 0.50})
     end
 
-    it "returns operating systems across payloads" do
+    it "returns resolutions across payloads" do
       client1 = Client.create(identifier: "jumpstartlab", root_url: "http://jumpstartlab.com")
       client2 = Client.create(identifier: "jumpstartlab1", root_url: "http://jumpstartlabs.com")
 
@@ -456,10 +463,10 @@ RSpec.describe "Client" do
     it "can retrieve HTTP verbs" do
       client1 = Client.create(identifier: "jumpstartlab", root_url: "http://jumpstartlab.com")
       client2 = Client.create(identifier: "jumpstartlab1", root_url: "http://jumpstartlabs.com")
+
       type_1 = RequestType.find_or_create_by(http_verb: "GET")
       type_2 = RequestType.find_or_create_by(http_verb: "POST")
       type_3 = RequestType.find_or_create_by(http_verb: "DELETE")
-      type_4 = RequestType.find_or_create_by(http_verb: "GET")
 
       Payload.create(url_id: 1,
                      requested_at: "2013-02-16 21:38:28 -0700",
@@ -498,7 +505,7 @@ RSpec.describe "Client" do
                      requested_at: "2013-02-16 21:38:28 -0700",
                      responded_in: 55,
                      referred_by_id: 1,
-                     request_type_id: type_4.id,
+                     request_type_id: type_1.id,
                      event_id: 1,
                      u_agent_id: 1,
                      resolution_id: 2,

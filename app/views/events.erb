@@ -1,0 +1,22 @@
+<h1><%= @client.identifier %></h1>
+<h2> <%= @event %> </h2>
+<table>
+  <tr>
+    <th>
+      Hour
+    </th>
+    <th>
+      Count
+    </th>
+  </tr>
+  <% @occurances.each do |hour, count| %>
+  <tr>
+    <td>
+      <%= hour.to_i %>
+    </td>
+    <td>
+      <%= count %>
+    </td>
+  </tr>
+  <% end %>
+</table>

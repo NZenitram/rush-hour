@@ -54,4 +54,8 @@ class Client < ActiveRecord::Base
     resolutions.resolution_occurances
   end
 
+  def event_response_time_count(params)
+    events.where(name: params[:EVENTNAME]).group("DATE_PART('hour', requested_at)").count
+  end
+
 end

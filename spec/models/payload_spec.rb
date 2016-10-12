@@ -92,7 +92,7 @@ RSpec.describe "Payload" do
       expect(payload).to_not be_valid
     end
 
-    it "is invalid without an u_agent_id" do
+    it "is invalid without a u_agent_id" do
       payload = Payload.create(
                                url_id: 1,
                                requested_at: 1,
