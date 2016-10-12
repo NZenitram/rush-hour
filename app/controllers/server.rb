@@ -39,7 +39,7 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER' do
-      @client = C
+      @client = ControllerLogic.find_client(params)
       if ControllerLogic.nil_client(params)
         status 403
         body "Please ensure the client exists\n"

@@ -1,18 +1,19 @@
 <h1>URL Information</h1>
-<h2>Max Reponse Time: </h2>
-<p> <%= @url.max_response_time %></p>
+<h2>Address:  <%= @url.address %> </h2>
+<h3>Max Reponse Time: </h3>
+<p id="max"> <%= @url.max_response_time %></p>
 
-<h2>Min Response Time </h2>
-<p> <%= @url.min_response_time %></p>
+<h3 >Min Response Time </h3>
+<p id="min"> <%= @url.min_response_time %></p>
 
-<h2>List of Response Time</h2>
+<h3>List of Response Time</h3>
 <p> <%= @url.list_all_response_times %></p>
 
-<h2>HTTP Verbs</h2>
+<h3>HTTP Verbs</h3>
 <p><%= @url.list_all_http_verbs %></p>
 
-<h2>Three Most Popular Referrers</h2>
+<h3>Three Most Popular Referrers</h3>
 <p> <%= @url.find_top_referrers %></p>
 
-<h2>Three Most Popular Agents</h2>
+<h3>Three Most Popular Agents</h3>
 <p> <%= @url.find_top_agents %> </p>
