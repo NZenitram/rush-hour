@@ -39,7 +39,7 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER' do
-      @client = Client.find_by(identifier: params[:IDENTIFIER])
+      @client = C
       if ControllerLogic.nil_client(params)
         status 403
         body "Please ensure the client exists\n"
@@ -54,7 +54,7 @@ module RushHour
     end
 
     get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do
-      @client = Client.find_by(identifier: params[:IDENTIFIER])
+      @client = ControllerLogic.find_client(params)
       @url = ControllerLogic.find_url(@client, params)
       if @url.nil?
         body "This URL has not been requested"
@@ -64,5 +64,11 @@ module RushHour
       end
     end
 
+    get '/sources/:IDENTIFIER/events/:EVENTNAME' do
+      @client = ControllerLogic.find_client(params)
+      @occurances = @client.event_response_time_count(params)
+      @event = params[:EVENTNAME]
+      erb :events
+    end
   end
 end
