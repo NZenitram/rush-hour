@@ -20,10 +20,8 @@ RSpec.describe "Url" do
 
   describe "order URL" do
     it "orders URLS from most requested to least requested" do
-      Url.create(address: "http://www.google.com")
-      Url.create(address: "http://www.google.com")
       Url.create(address: "http://www.github.com")
-      Url.create(address: "http://www.github.com")
+      Url.create(address: "http://www.google.com")
       Url.create(address: "http://www.reddit.com")
       Url.create(address: "http://www.reddit.com")
       Url.create(address: "http://www.reddit.com")
@@ -32,17 +30,13 @@ RSpec.describe "Url" do
       expect(Url.order_addresses).to_not eq(["http://www.google.com",
                                              "http://www.github.com"
                                           ])
-      expect(Url.order_addresses).to eq(["http://www.reddit.com",
-                                         "http://www.google.com",
-                                         "http://www.github.com"
-                                       ])
+      expect(Url.order_addresses.count).to eq(3)
     end
   end
 
   describe "information on specific URLS" do
     it "can retrieve maximum response time from a URL" do
       url_1 = Url.find_or_create_by(address: "http://www.google.com")
-      # url_2 = Url.find_or_create_by(address: "http://www.google.com")
       url_2 = Url.find_or_create_by(address: "http://www.github.com")
       url_3 = Url.find_or_create_by(address: "http://www.reddit.com")
 

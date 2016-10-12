@@ -72,6 +72,5 @@ RSpec.describe "U_Agent" do
       expect(UAgent.operating_system_breakdown).to eq(expected)
     end
   end
-
-
+  
 end

@@ -18,11 +18,9 @@ RSpec.describe "Resolution" do
 
   describe "resolution_occurances" do
     it "returns resolutions" do
-    Resolution.create(height: 1920, width: 1080)
-    Resolution.create(height: 1920, width: 1080)
-    Resolution.create(height: 1920, width: 1200)
-    Resolution.create(height: 1920, width: 1200)
-    Resolution.create(height: 1200, width: 900)
+      Resolution.create(height: 1920, width: 1080)
+      Resolution.create(height: 1920, width: 1200)
+      Resolution.create(height: 1200, width: 900)
 
     expect(Resolution.resolution_occurances).to_not eq(0)
 

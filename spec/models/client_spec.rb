@@ -398,7 +398,7 @@ RSpec.describe "Client" do
       expect(client2.operating_systems_across_payloads).to_not eq({"Chrome" => 0.50, "Firefox" => 0.50})
     end
 
-    it "returns operating systems across payloads" do
+    it "returns resolutions across payloads" do
       client1 = Client.create(identifier: "jumpstartlab", root_url: "http://jumpstartlab.com")
       client2 = Client.create(identifier: "jumpstartlab1", root_url: "http://jumpstartlabs.com")
 

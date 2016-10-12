@@ -3,7 +3,7 @@ require 'pry'
 class Url < ActiveRecord::Base
   validates :address, presence: true
   validates :address, uniqueness: true
-  
+
   has_many :payloads
 
   def self.order_addresses
