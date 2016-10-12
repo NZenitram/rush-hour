@@ -6,6 +6,7 @@ class UAgent < ActiveRecord::Base
   has_many :payloads
 
   def self.web_browser_breakdown
+    binding.pry
     browsers = group(:browser).count
     total = UAgent.count
     browsers.each do |browser, occurance_total|

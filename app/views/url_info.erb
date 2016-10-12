@@ -1,5 +1,5 @@
 <h1>URL Information</h1>
-<h2>Address:  <%= @url.address %> </h2>
+<h2 id="address">Address:  <%= @url.address %> </h2>
 <h3>Max Reponse Time: </h3>
 <p id="max"> <%= @url.max_response_time %></p>
 
@@ -7,13 +7,13 @@
 <p id="min"> <%= @url.min_response_time %></p>
 
 <h3>List of Response Time</h3>
-<p> <%= @url.list_all_response_times %></p>
+<p id="times"> <%= @url.list_all_response_times %></p>
 
 <h3>HTTP Verbs</h3>
-<p><%= @url.list_all_http_verbs %></p>
+<p id="verbs"><%= @url.list_all_http_verbs %></p>
 
 <h3>Three Most Popular Referrers</h3>
-<p> <%= @url.find_top_referrers %></p>
+<p id="referrers"> <%= @url.find_top_referrers %></p>
 
 <h3>Three Most Popular Agents</h3>
-<p> <%= @url.find_top_agents %> </p>
+<p id="agents"> <%= @url.find_top_agents %> </p>
