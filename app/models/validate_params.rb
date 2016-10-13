@@ -29,28 +29,18 @@ class ValidateParams <Sinatra::Base
   def self.identifier_response(params)
     if ControllerLogic.nil_client(params)
       [403, "Please ensure the client exists\n", :error]
-      # status 403
-      # body "Please ensure the client exists\n"
-      # erb :error
     elsif ControllerLogic.payloads_associated(params)
       [403, "No payloads have been received for this source\n", :error]
-      # status 403
-      # body "No payloads have been received for this source\n"
-      # erb :error
     else
       [200, "Everything OK", :identifier]
-      # erb :identifier
     end
   end
 
   def self.url_response(params, url)
     if url.nil?
       ["This URL has not been requested", :error]
-      # body "This URL has not been requested"
-      # erb :error
     else
       ["Everything OK", :url_info]
-      # erb :url_info
     end
 
   end

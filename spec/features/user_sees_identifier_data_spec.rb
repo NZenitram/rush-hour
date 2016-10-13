@@ -61,7 +61,7 @@ RSpec.describe "When a user visits a URL info page" do
   it "displays the http verbs" do
     create_test_client
     create_test_payloads
-    expected = ["GET"]
+    expected = "GET"
     visit '/sources/jumpstartlab'
 
     within("#verbs") do
