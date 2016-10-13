@@ -87,8 +87,8 @@
           <div class="panel-body">
             <h4>
               <ul>
-                <% @client.web_browsers_across_payloads.each do |browser, count| %>
-                  <li> <%= browser %> was used <%= count.to_i %> time(s). </li>
+                <% @client.web_browsers_across_payloads.each do |browser, percentage| %>
+                  <li> <%= browser %> was used <%= format_percent(percentage) %>% of the time. </li>
                 <% end %>
               </ul>
             </h4>
@@ -103,8 +103,8 @@
           <div class="panel-body">
             <h4>
               <ul>
-                <% @client.operating_systems_across_payloads.each do |os, count| %>
-                  <li> <%= os %> was used <%= count.to_i %> time(s). </li>
+                <% @client.operating_systems_across_payloads.each do |os, percentage| %>
+                  <li> <%= os %> was used <%= format_percent(percentage) %>% of the time. </li>
                 <% end %>
               </ul>
             </h4>

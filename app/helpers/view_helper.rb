@@ -9,3 +9,7 @@ def group_payloads(payloads, hour = 0, breakdown={})
     hour += 1
     group_payloads(payloads, hour, breakdown)
 end
+
+def format_percent(number)
+  (number*100).round(3)
+end
