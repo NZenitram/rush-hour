@@ -36,9 +36,9 @@ RSpec.describe "Url" do
 
   describe "information on specific URLS" do
     it "can retrieve maximum response time from a URL" do
-      url_1 = Url.find_or_create_by(address: "http://www.google.com")
-      url_2 = Url.find_or_create_by(address: "http://www.github.com")
-      url_3 = Url.find_or_create_by(address: "http://www.reddit.com")
+      url_1 = Url.create(address: "http://www.google.com")
+      url_2 = Url.create(address: "http://www.github.com")
+      url_3 = Url.create(address: "http://www.reddit.com")
 
       Payload.create(url_id: url_1.id,
                      requested_at: "2013-02-16 21:38:28 -0700",
@@ -87,9 +87,9 @@ RSpec.describe "Url" do
     end
 
     it "can retrieve minimimum response time from a URL" do
-      url_1 = Url.find_or_create_by(address: "http://www.google.com")
-      url_2 = Url.find_or_create_by(address: "http://www.github.com")
-      url_3 = Url.find_or_create_by(address: "http://www.reddit.com")
+      url_1 = Url.create(address: "http://www.google.com")
+      url_2 = Url.create(address: "http://www.github.com")
+      url_3 = Url.create(address: "http://www.reddit.com")
 
       Payload.create(url_id: url_1.id,
                      requested_at: "2013-02-16 21:38:28 -0700",
@@ -138,8 +138,8 @@ RSpec.describe "Url" do
     end
 
     it "can retrieve all response times from a URL" do
-      url_1 = Url.find_or_create_by(address: "http://www.google.com")
-      url_2 = Url.find_or_create_by(address: "http://www.reddit.com")
+      url_1 = Url.create(address: "http://www.google.com")
+      url_2 = Url.create(address: "http://www.reddit.com")
 
       Payload.create(url_id: url_1.id,
                      requested_at: "2013-02-16 21:38:28 -0700",
@@ -187,12 +187,12 @@ RSpec.describe "Url" do
     end
 
     it "can retrieve HTTP verbs" do
-      url_1 = Url.find_or_create_by(address: "http://www.google.com")
-      url_2 = Url.find_or_create_by(address: "http://www.reddit.com")
+      url_1 = Url.create(address: "http://www.google.com")
+      url_2 = Url.create(address: "http://www.reddit.com")
 
-      type_1 = RequestType.find_or_create_by(http_verb: "GET")
-      type_2 = RequestType.find_or_create_by(http_verb: "POST")
-      type_3 = RequestType.find_or_create_by(http_verb: "DELETE")
+      type_1 = RequestType.create(http_verb: "GET")
+      type_2 = RequestType.create(http_verb: "POST")
+      type_3 = RequestType.create(http_verb: "DELETE")
 
       Payload.create(url_id: url_1.id,
                      requested_at: "2013-02-16 21:38:28 -0700",
@@ -250,12 +250,12 @@ RSpec.describe "Url" do
     end
 
     it "can retrieve 3 popular referrers" do
-      url_1 = Url.find_or_create_by(address: "http://www.facebook.com")
+      url_1 = Url.create(address: "http://www.facebook.com")
 
-      ref_1 = ReferredBy.find_or_create_by(address: "http://www.google.com")
-      ref_2 = ReferredBy.find_or_create_by(address: "http://www.reddit.com")
-      ref_3 = ReferredBy.find_or_create_by(address: "http://www.github.com")
-      ref_4 = ReferredBy.find_or_create_by(address: "http://www.yahoo.com")
+      ref_1 = ReferredBy.create(address: "http://www.google.com")
+      ref_2 = ReferredBy.create(address: "http://www.reddit.com")
+      ref_3 = ReferredBy.create(address: "http://www.github.com")
+      ref_4 = ReferredBy.create(address: "http://www.yahoo.com")
 
       Payload.create(url_id: url_1.id,
                      requested_at: "2013-02-16 21:38:28 -0700",
@@ -364,12 +364,12 @@ RSpec.describe "Url" do
   end
 
   it "can retrieve 3 popular user agents" do
-    url_1 = Url.find_or_create_by(address: "http://www.facebook.com")
+    url_1 = Url.create(address: "http://www.facebook.com")
 
-    ref_1 = UAgent.find_or_create_by(browser: "Chrome", operating_system: "OSX")
-    ref_2 = UAgent.find_or_create_by(browser: "Chrome", operating_system: "Windows 10")
-    ref_3 = UAgent.find_or_create_by(browser: "FireFox", operating_system: "Windows 10")
-    ref_4 = UAgent.find_or_create_by(browser: "FireFox", operating_system: "OSX")
+    ref_1 = UAgent.create(browser: "Chrome", operating_system: "OSX")
+    ref_2 = UAgent.create(browser: "Chrome", operating_system: "Windows 10")
+    ref_3 = UAgent.create(browser: "FireFox", operating_system: "Windows 10")
+    ref_4 = UAgent.create(browser: "FireFox", operating_system: "OSX")
 
     Payload.create(url_id: url_1.id,
                    requested_at: "2013-02-16 21:38:28 -0700",
@@ -458,6 +458,5 @@ RSpec.describe "Url" do
 
     expect(url_1.find_top_agents).to eq(expected)
   end
-
-
+  
 end

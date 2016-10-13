@@ -17,60 +17,60 @@ RSpec.describe "U_Agent" do
 
   describe "web browser breakdown" do
     it "returns web browser breakdown" do
-      UAgent.create(browser: "IE",
+      UAgent.find_or_create_by(browser: "IE",
                     operating_system: "Windows 10"
                     )
-      UAgent.create(browser: "IE",
+      UAgent.find_or_create_by(browser: "IE",
                     operating_system: "Windows 8"
                     )
-      UAgent.create(browser: "IE",
+      UAgent.find_or_create_by(browser: "IE",
                     operating_system: "Windows 10"
                     )
-      UAgent.create(browser: "Chrome",
+      UAgent.find_or_create_by(browser: "Chrome",
                     operating_system: "Windows 7"
                     )
-      UAgent.create(browser: "Chrome",
+      UAgent.find_or_create_by(browser: "Chrome",
                     operating_system: "Windows 10"
                     )
-      UAgent.create(browser: "Safari",
+      UAgent.find_or_create_by(browser: "Safari",
                     operating_system: "OS X"
                     )
 
       expect(UAgent.web_browser_breakdown).to_not eq(0)
 
 
-      expected = {"IE"=>0.5, "Chrome"=>0.333, "Safari"=>0.167}
+      expected = {"IE"=>0.4, "Chrome"=>0.4, "Safari"=>0.2}
       expect(UAgent.web_browser_breakdown).to eq(expected)
     end
   end
 
   describe "operating_system breakdown" do
     it "returns operating_system breakdown" do
-      UAgent.create(browser: "IE",
+      UAgent.find_or_create_by(browser: "IE",
                     operating_system: "Windows 10"
                     )
-      UAgent.create(browser: "IE",
+      UAgent.find_or_create_by(browser: "IE",
                     operating_system: "Windows 8"
                     )
-      UAgent.create(browser: "IE",
+      UAgent.find_or_create_by(browser: "IE",
                     operating_system: "Windows 10"
                     )
-      UAgent.create(browser: "Chrome",
+      UAgent.find_or_create_by(browser: "Chrome",
                     operating_system: "Windows 7"
                     )
-      UAgent.create(browser: "Chrome",
+      UAgent.find_or_create_by(browser: "Chrome",
                     operating_system: "Windows 10"
                     )
-      UAgent.create(browser: "Safari",
+      UAgent.find_or_create_by(browser: "Safari",
                     operating_system: "OS X"
                     )
 
       expect(UAgent.operating_system_breakdown).to_not eq(0)
 
 
-      expected = {"Windows 7"=>0.167, "Windows 8"=>0.167, "OS X"=>0.167, "Windows 10"=>0.5}
+      expected =  {"Windows 7"=>0.2, "Windows 8"=>0.2, "OS X"=>0.2, "Windows 10"=>0.4}
       expect(UAgent.operating_system_breakdown).to eq(expected)
     end
   end
-  
+
 end
