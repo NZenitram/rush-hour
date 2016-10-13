@@ -47,18 +47,17 @@ RSpec.describe "When a user visits a URL info page" do
   it "displays the proper response time" do
     create_test_client
     create_test_payloads
-    expected = [37, 24]
     visit '/sources/jumpstartlab/urls/blog'
 
     within("#times") do
-      expect(page).to have_content(expected)
+      expect(page).to have_content("24")
     end
   end
 
   it "displays the proper verbs" do
     create_test_client
     create_test_payloads
-    expected = ["GET"]
+    expected = "GET"
     visit '/sources/jumpstartlab/urls/blog'
 
     within("#verbs") do
@@ -69,7 +68,7 @@ RSpec.describe "When a user visits a URL info page" do
   it "displays the proper referrers" do
     create_test_client
     create_test_payloads
-    expected = ["http://jumpstartlab.com"]
+    expected = "http://jumpstartlab.com"
     visit '/sources/jumpstartlab/urls/blog'
 
     within("#referrers") do
@@ -80,7 +79,7 @@ RSpec.describe "When a user visits a URL info page" do
   it "displays the proper agents" do
     create_test_client
     create_test_payloads
-    expected = [["Chrome", "Macintosh"]]
+    expected = "Chrome on Macintosh"
     visit '/sources/jumpstartlab/urls/blog'
 
     within("#agents") do

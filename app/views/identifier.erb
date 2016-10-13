@@ -1,47 +1,129 @@
-<h1 id="client"> <%= @client.identifier %> </h1>
-<div id="average_response">
-  <h3 >Average Reponse Time: </h3>
-  <%= @client.average_response_time %>
-</div>
-
-<div id="max_response">
-  <h3>Max Reponse Time: </h3>
-  <%= @client.max_response_time %>
-</div>
-
-<div id="min_response">
-  <h3>Min Reponse Time: </h3>
-  <%= @client.min_response_time %>
-</div>
-
-<div id="frequent_response">
-  <h3>Most Frequent Request Type: </h3>
-  <%= @client.most_frequent_request_type %>
-</div>
-
-<div id="verbs">
-  <h3>HTTP Verbs: </h3>
-  <%= @client.client_verbs_list %>
-</div>
-
-<div id="urls">
-  <h3>URLs: </h3>
-  <% @client.list_of_sorted_urls.each do |url| %>
-  <a href="/sources/<%= @client.identifier %>/urls<%= format_url(url, @client) %>"><%= url %></a>
-  <% end %>
-</div>
-
-<div id="browsers">
-  <h3>Browsers: </h3>
-  <%= @client.web_browsers_across_payloads %>
-</div>
-
-<div id="os">
-  <h3>Operating Systems: </h3>
-  <%= @client.operating_systems_across_payloads %>
-</div>
-
-<div id="resolutions">
-  <h3>Screen Resolutions: </h3>
-  <%= @client.resolutions_across_payloads %>
-</div>
+<h1 id="client" class="text-center"> <%= @client.identifier %> </h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4" id="average_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 >Average Reponse Time: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <%= @client.average_response_time %>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="max_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Max Reponse Time: </h3>
+          </div>
+          <div class="panel-body">
+            <h4><%= @client.max_response_time %></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="min_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 >Minimum Reponse Time: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <%= @client.min_response_time %>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" id="frequent_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Most Frequent Request: </h3>
+          </div>
+          <div class="panel-body">
+            <h4><%= @client.most_frequent_request_type %></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="verbs">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Common HTTP Verbs: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+              <% @client.client_verbs_list.each do |verb| %>
+                  <li><%= verb %></li>
+              <% end %>
+            </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="urls">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Available URLs: </h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @client.list_of_sorted_urls.each do |url| %>
+              <li><a href="/sources/<%= @client.identifier %>/urls<%= format_url(url, @client) %>"><%= url %></a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" id="browsers">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Browsers: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @client.web_browsers_across_payloads.each do |browser, count| %>
+                  <li> <%= browser %> was used <%= count.to_i %> time(s). </li>
+                <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="os">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Operating Systems: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @client.operating_systems_across_payloads.each do |os, count| %>
+                  <li> <%= os %> was used <%= count.to_i %> time(s). </li>
+                <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="resolutions">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Screen Resolutions: </h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @client.resolutions_across_payloads.each do |res| %>
+                <h4><li> <%= res %> </li></h4>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

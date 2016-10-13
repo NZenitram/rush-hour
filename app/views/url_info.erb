@@ -1,19 +1,93 @@
-<h1>URL Information</h1>
-<h2 id="address">Address:  <%= @url.address %> </h2>
-<h3>Max Reponse Time: </h3>
-<p id="max"> <%= @url.max_response_time %></p>
-
-<h3 >Min Response Time </h3>
-<p id="min"> <%= @url.min_response_time %></p>
-
-<h3>List of Response Time</h3>
-<p id="times"> <%= @url.list_all_response_times %></p>
-
-<h3>HTTP Verbs</h3>
-<p id="verbs"><%= @url.list_all_http_verbs %></p>
-
-<h3>Three Most Popular Referrers</h3>
-<p id="referrers"> <%= @url.find_top_referrers %></p>
-
-<h3>Three Most Popular Agents</h3>
-<p id="agents"> <%= @url.find_top_agents %> </p>
+<h1 class="text-center">URL Information</h1>
+<h2 class="text-center" id="address">Address:  <%= @url.address %> </h2>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4" id="max">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Max Reponse Time: </h3>
+        </div>
+        <div class="panel-body">
+          <h4><%= @url.max_response_time %></h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" id="min">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 >Min Response Time:</h3>
+        </div>
+        <div class="panel-body">
+          <h4> <%= @url.min_response_time %></h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" id="times">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>List of Response Times:</h3>
+        </div>
+        <div class="panel-body">
+          <h4>
+            <ul>
+              <% @url.list_all_response_times.each do |response| %>
+              <li><%= response %></li>
+              <% end %>
+            </ul>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-4" id="verbs">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>All HTTP Verbs:</h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @url.list_all_http_verbs.each do |verb| %>
+                <li><%= verb %></li>
+                <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="referrers">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Top Three Referrers:</h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @url.find_top_referrers.each do |referrer| %>
+                  <li> <%= referrer %></li>
+                  <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="agents">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Top Three Agents</h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @url.find_top_agents.each do |agent| %>
+                  <li> <%= agent[0] %> on <%= agent[-1] %></li>
+                  <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
