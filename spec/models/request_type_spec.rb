@@ -19,8 +19,8 @@ RSpec.describe "Request_type" do
 
   describe "returns http verbs" do
     it "returns most frequently used http verb" do
-      r1 = RequestType.find_or_create_by(http_verb: "GET")
-      r2 = RequestType.find_or_create_by(http_verb: "POST")
+      r1 = RequestType.create(http_verb: "GET")
+      r2 = RequestType.create(http_verb: "POST")
 
       Payload.create(
                      url_id: 1,
@@ -61,9 +61,9 @@ RSpec.describe "Request_type" do
     end
 
     it "returns most frequently used http verb" do
-      r1 = RequestType.find_or_create_by(http_verb: "GET")
-      r2 = RequestType.find_or_create_by(http_verb: "POST")
-      r3 = RequestType.find_or_create_by(http_verb: "DELETE")
+      r1 = RequestType.create(http_verb: "GET")
+      r2 = RequestType.create(http_verb: "POST")
+      r3 = RequestType.create(http_verb: "DELETE")
 
       payload = Payload.create(
                                url_id: 1,
