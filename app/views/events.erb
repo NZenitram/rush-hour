@@ -1,0 +1,22 @@
+<h1 class="text-center"><%= @client.identifier %></h1>
+<h2 class="text-center">Event Type: <%= @event %> </h2>
+<table class="table table-striped">
+  <tr>
+    <th>
+      Hour
+    </th>
+    <th>
+      Count
+    </th>
+  </tr>
+  <% @occurances.each do |hour, count| %>
+  <tr>
+    <td>
+        <%= hour.to_i %>:00
+    </td>
+    <td>
+      <%= count %>
+    </td>
+  </tr>
+  <% end %>
+</table>

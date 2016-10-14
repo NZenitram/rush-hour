@@ -1,0 +1,129 @@
+<h1 id="client" class="text-center"> <%= @client.identifier %> </h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4" id="average_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 >Average Reponse Time: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <%= @client.average_response_time %>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="max_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Max Reponse Time: </h3>
+          </div>
+          <div class="panel-body">
+            <h4><%= @client.max_response_time %></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="min_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 >Minimum Reponse Time: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <%= @client.min_response_time %>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" id="frequent_response">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Most Frequent Request: </h3>
+          </div>
+          <div class="panel-body">
+            <h4><%= @client.most_frequent_request_type %></h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="verbs">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Common HTTP Verbs: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+              <% @client.client_verbs_list.each do |verb| %>
+                  <li><%= verb %></li>
+              <% end %>
+            </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="urls">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Available URLs: </h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @client.list_of_sorted_urls.each do |url| %>
+              <li><a href="/sources/<%= @client.identifier %>/urls<%= format_url(url, @client) %>"><%= url %></a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" id="browsers">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Browsers: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @client.web_browsers_across_payloads.each do |browser, percentage| %>
+                  <li> <%= browser %> was used <%= format_percent(percentage) %>% of the time. </li>
+                <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="os">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Operating Systems: </h3>
+          </div>
+          <div class="panel-body">
+            <h4>
+              <ul>
+                <% @client.operating_systems_across_payloads.each do |os, percentage| %>
+                  <li> <%= os %> was used <%= format_percent(percentage) %>% of the time. </li>
+                <% end %>
+              </ul>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" id="resolutions">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Screen Resolutions: </h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @client.resolutions_across_payloads.each do |res| %>
+                <h4><li> <%= res %> </li></h4>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
