@@ -1,6 +1,6 @@
 require_relative 'client'
 
-class ControllerHelper < Sinatra::Base
+class ControllerHelper 
 
   def self.valid_parameters(params)
     params[:identifier].nil? || params[:identifier] == "" ||

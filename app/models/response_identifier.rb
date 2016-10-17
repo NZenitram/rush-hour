@@ -1,6 +1,6 @@
 require_relative 'controller_helper'
 
-class ResponseIdentifier <Sinatra::Base
+class ResponseIdentifier 
 
   def self.source_response(params)
     if ControllerHelper.valid_parameters(params)
