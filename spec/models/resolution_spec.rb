@@ -14,6 +14,13 @@ RSpec.describe "Resolution" do
 
       expect(resolution).to_not be_valid
     end
+
+    it "is valid with a width and height" do
+      resolution = Resolution.create(height: 1920, width: 1080)
+
+      expect(resolution).to be_valid
+    end
+
   end
 
   describe "resolution_occurances" do

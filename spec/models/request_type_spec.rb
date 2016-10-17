@@ -15,6 +15,13 @@ RSpec.describe "Request_type" do
 
       expect(request_type2).to_not be_valid
     end
+
+    it "is valid with an http_verb" do
+      request_type = RequestType.create(http_verb: "GET")
+
+      expect(request_type).to be_valid
+    end
+
   end
 
   describe "returns http verbs" do

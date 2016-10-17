@@ -15,6 +15,14 @@ RSpec.describe "Event" do
 
       expect(event2).to_not be_valid
     end
+
+    it "is valid with a name" do
+      event = Event.new(name: "socialLogin")
+
+      expect(event).to be_valid
+    end
+
+
   end
 
 end

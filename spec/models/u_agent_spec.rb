@@ -8,11 +8,21 @@ RSpec.describe "U_Agent" do
 
       expect(u_agent).to_not be_valid
     end
-    it "is invalid without a operating_system" do
+
+    it "is invalid without an operating_system" do
       u_agent = UAgent.new(operating_system: "test")
 
       expect(u_agent).to_not be_valid
     end
+
+    it "is valid with an operating_system and browser" do
+      u_agent = UAgent.find_or_create_by(browser: "IE",
+                    operating_system: "Windows 10"
+                    )
+
+      expect(u_agent).to be_valid
+    end
+
   end
 
   describe "web browser breakdown" do

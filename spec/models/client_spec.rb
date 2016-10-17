@@ -20,6 +20,13 @@ RSpec.describe "Client" do
 
       expect(client2).to_not be_valid
     end
+
+    it "is valid with a rootUrl and identifier" do
+      client = Client.new(identifier: "test", root_url: "test")
+
+      expect(client).to be_valid
+    end
+
   end
 
   describe "method verification" do

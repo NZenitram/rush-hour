@@ -7,31 +7,31 @@ module RushHour
     end
 
     post '/sources' do
-      ValidateParams.source_response(params)
+      ResponseIdentifier.source_response(params)
     end
 
     post '/sources/:IDENTIFIER/data' do
-      ValidateParams.identifier_data_response(params)
+      ResponseIdentifier.identifier_data_response(params)
     end
 
     get '/sources/:IDENTIFIER' do
-      @client = ControllerLogic.find_client(params)
-      response = ValidateParams.identifier_response(params)
+      @client = ControllerHelper.find_client(params)
+      response = ResponseIdentifier.identifier_response(params)
       status  response[0]
       body    response[1]
       erb     response[-1]
     end
 
     get '/sources/:IDENTIFIER/urls/:RELATIVEPATH' do
-      @client = ControllerLogic.find_client(params)
-      @url = ControllerLogic.find_url(@client, params)
-      response = ValidateParams.url_response(params, @url)
+      @client = ControllerHelper.find_client(params)
+      @url = ControllerHelper.find_url(@client, params)
+      response = ResponseIdentifier.url_response(params, @url)
       body  response[0]
       erb   response[-1]
     end
 
     get '/sources/:IDENTIFIER/events/:EVENTNAME' do
-      @client = ControllerLogic.find_client(params)
+      @client = ControllerHelper.find_client(params)
       @occurances = @client.event_response_time_count(params)
       @event = params[:EVENTNAME]
       erb :events

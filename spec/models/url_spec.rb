@@ -16,6 +16,13 @@ RSpec.describe "Url" do
 
       expect(url2).to_not be_valid
     end
+
+    it "is valid with an address" do
+      url = Url.new(address: "test")
+
+      expect(url).to be_valid
+    end
+
   end
 
   describe "order URL" do
@@ -458,5 +465,5 @@ RSpec.describe "Url" do
 
     expect(url_1.find_top_agents).to eq(expected)
   end
-  
+
 end

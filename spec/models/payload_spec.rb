@@ -136,6 +136,25 @@ RSpec.describe "Payload" do
 
       expect(payload).to_not be_valid
     end
+
+    it "is valid with all 9 keys" do
+      payload = Payload.create(
+                     url_id: 1,
+                     requested_at: "2013-02-16 21:38:28 -0700",
+                     responded_in: 100,
+                     referred_by_id: 1,
+                     request_type_id: 1,
+                     event_id: 1,
+                     u_agent_id: 1,
+                     resolution_id: 2,
+                     ip_id: 1
+                    )
+
+      expect(payload).to be_valid
+    end
+
+
+
   end
 
   describe "check methods" do

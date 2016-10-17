@@ -16,6 +16,13 @@ RSpec.describe "Ip" do
 
       expect(ip2).to_not be_valid
     end
+
+      it "is valid with an address" do
+        ip = Ip.new(address: "63.29.38.211")
+
+        expect(ip).to be_valid
+      end
+
   end
 
 end

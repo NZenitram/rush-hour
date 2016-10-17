@@ -16,6 +16,13 @@ RSpec.describe "Referred_by" do
 
       expect(referred_by2).to_not be_valid
     end
+
+    it "is valid with an  address" do
+      referred_by = ReferredBy.create(address: "test")
+
+      expect(referred_by).to be_valid
+    end
+
   end
 
 end
